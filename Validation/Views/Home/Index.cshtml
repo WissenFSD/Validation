@@ -9,10 +9,15 @@
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
+	<!--Validation summary Validasyon mesajlarını toplu halde göstermek için vardır.-->
+	@Html.ValidationSummary()
 
 	<div class="mb-3">
 		@Html.LabelFor(s => s.IdentityNo, new { @class = "form-label" })
 		@Html.TextBoxFor(s => s.IdentityNo, new { @class = "form-control" })
+
+		<!--ValidationMessageFor validasyon mesajlarını property özelinde göstermek için kullanılır.-->
+
 		<i class="red">@Html.ValidationMessageFor(s => s.IdentityNo)</i>
 
 	</div>

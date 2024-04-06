@@ -21,9 +21,13 @@ namespace Validation.Controllers
 		[HttpPost]
 		public IActionResult Index(AddUser model)
 		{
+
+			// Modele uygulanan tüm valiasyonlardan her þey okeyse, IsValid True olacaktýr.
+
+			//ModelState üzerinden, validasyon ile ilgili bilgilere ulaþabilirsiniz.
 			if (ModelState.IsValid)
 			{
-
+				// Devam eden iþleri burada yazmalýsýnýz.
 			}
 			return View();
 		}
