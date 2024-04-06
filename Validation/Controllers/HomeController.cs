@@ -21,6 +21,10 @@ namespace Validation.Controllers
 		[HttpPost]
 		public IActionResult Index(AddUser model)
 		{
+			if (ModelState.IsValid)
+			{
+
+			}
 			return View();
 		}
 

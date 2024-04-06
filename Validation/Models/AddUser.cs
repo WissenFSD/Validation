@@ -4,6 +4,7 @@ namespace Validation.Models
 {
 	public class AddUser
 	{
+		[Required(ErrorMessage ="Tc Kimlik No boş olamaz")]
 		[Display(Name = "Tc Kimlik No")]
 		[StringLength(11,ErrorMessage ="Tc kimlik numarası 11 karakter olmalıdır.")]
 		[RegularExpression("^[1-9]{1}[0-9]{9}[02468]{1}$",ErrorMessage ="Girilen kimlik numarası uygun formatta değil")]

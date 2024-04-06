@@ -1,25 +1,43 @@
 ﻿@model AddUser
 
+<style>
 
+	.red {
+		color: red;
+	}
+</style>
 
-<div class="mb-3">
-	@Html.LabelFor(s => s.IdentityNo, new { @class = "form-label" })
-	@Html.TextBoxFor(s=>s.IdentityNo,new  {@class="form-control"})
-</div>
-<div class="mb-3">
-	@Html.LabelFor(s => s.Name, new { @class = "form-label" })
-	@Html.TextBoxFor(s => s.Name, new { @class = "form-control" })
-</div>
-<div class="mb-3">
-	@Html.LabelFor(s => s.LastName, new { @class = "form-label" })
-	@Html.TextBoxFor(s => s.LastName, new { @class = "form-control" })
-</div>
-<div class="mb-3">
-	@Html.LabelFor(s => s.Email, new { @class = "form-label" })
-	@Html.TextBoxFor(s => s.Email, new { @class = "form-control" })
-</div>
-<div class="mb-3">
-	@Html.LabelFor(s => s.Age, new { @class = "form-label" })
-	@Html.TextBoxFor(s => s.Age, new { @class = "form-control" })
-	
-</div>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+
+	<div class="mb-3">
+		@Html.LabelFor(s => s.IdentityNo, new { @class = "form-label" })
+		@Html.TextBoxFor(s => s.IdentityNo, new { @class = "form-control" })
+		<i class="red">@Html.ValidationMessageFor(s => s.IdentityNo)</i>
+
+	</div>
+	<div class="mb-3">
+		@Html.LabelFor(s => s.Name, new { @class = "form-label" })
+		@Html.TextBoxFor(s => s.Name, new { @class = "form-control" })
+		<i class="red">@Html.ValidationMessageFor(s => s.Name)</i>
+	</div>
+	<div class="mb-3">
+		@Html.LabelFor(s => s.LastName, new { @class = "form-label" })
+		@Html.TextBoxFor(s => s.LastName, new { @class = "form-control" })
+		<i class="red">@Html.ValidationMessageFor(s => s.LastName)</i>
+	</div>
+	<div class="mb-3">
+		@Html.LabelFor(s => s.Email, new { @class = "form-label" })
+		@Html.TextBoxFor(s => s.Email, new { @class = "form-control" })
+		<i class="red">@Html.ValidationMessageFor(s => s.Email)</i>
+	</div>
+	<div class="mb-3">
+		@Html.LabelFor(s => s.Age, new { @class = "form-label" })
+		@Html.TextBoxFor(s => s.Age, new { @class = "form-control" })
+		<i class="red">@Html.ValidationMessageFor(s => s.Age)</i>
+
+	</div>
+
+	<input type="submit" value="Kaydet" class="btn btn-outline-danger" />
+}
+
