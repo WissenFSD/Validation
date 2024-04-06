@@ -1,16 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Validation.DataModel;
 using Validation.Models;
 
 namespace Validation.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
-
-		public HomeController(ILogger<HomeController> logger)
+		ValidationsContext _context;
+		public HomeController(ValidationsContext context)
 		{
-			_logger = logger;
+			_context = context;
 		}
 
 		public IActionResult Index()
@@ -28,6 +28,17 @@ namespace Validation.Controllers
 			if (ModelState.IsValid)
 			{
 				// Devam eden iþleri burada yazmalýsýnýz.
+
+				_context.Users.Add(new DataModel.User()
+				{
+					Age = model.Age,
+					Email = model.Email,
+					IdentityNumber = model.IdentityNo,
+					Name = model.Name,
+					Surname = model.LastName
+
+				});
+				_context.SaveChanges();
 			}
 			return View();
 		}

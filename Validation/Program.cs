@@ -1,8 +1,11 @@
+using Validation.DataModel;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped(typeof(ValidationsContext));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
